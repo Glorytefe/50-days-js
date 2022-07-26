@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    background-color: #333;
+    color: #222;
+}
+.container-wrap{
+    position: relative;
+    background-color: #fafafa;
+    width: 100vw;
+    min-height: 100vh;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    padding: 50px;
+}
+.container-wrap.show-menu {
+    transform: rotate(-22deg);
+}
+/* header */
+
+.header .menu-icon{
+   position: fixed;
+   top: -100px;
+   left: -100px;
+   
+}
+.header .icon-wrap{
+    background-color: #ff7979;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+   
+}
+.icon-wrap .button{
+    position: absolute;
+    cursor: pointer;
+    top: 60%;
+    left: 50%;
+    height: 100px;
+}
+.icon-wrap .open {
+    left: 60%;
+}
+.icon-wrap .close {
+    transform: rotate(90deg);
+    transform-origin: top left;
+  }
+.show-menu .icon-wrap{
+    transform: rotate(-70deg);
+}
+.show-menu .close{
+    top: 56%;
+    left: 40%;
+}
+
+.menu-list{
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+    color: white;
+    left: 25px;
+}
+.menu-list .item{
+    padding: 15px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all .6s ease;
+    /* z-index: 100; */
+    cursor: pointer;
+}
+
+.menu-list .item:nth-child(1){
+    transform: translateX(-100%)
+}
+
+.menu-list .item:nth-child(2){
+    margin-left: 15px;
+   transform: translateX(-150%);
+}
+.menu-list .item:nth-child(3){
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+.show-menu + .menu-list .item{
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+.menu-list .item .icon{
+    margin-right: 15px;
+    font-size: 20px;
+}
+/* end of nav */
+/* main begins */
+.main{
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+}
+.container{
+    padding: 50px 0;
+}
+.container .title span{
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    font-size: 34px;
+    line-height: 40px;
+    margin-top: 10px;
+}
+.container .title small{
+    font-weight: 100;
+    font-style: italic;
+    font-size: 14px;
+}
+.content .intro,
+.content .desc{
+    padding: 20px 0;
+    text-align: justify;
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.img-wrap{
+    height: 600px;
+    padding: 10px 0;
+}
+.desc-wrapper img{
+    object-fit: cover;
+    width: 100%;
+   height: 100%;
+   margin-top: 10px;
+}

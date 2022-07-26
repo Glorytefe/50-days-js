@@ -1,0 +1,53 @@
+
+const pageContainer = document.getElementById("page-container");
+
+const data = [
+    {
+        img: "./img/1.jpg",
+        description: "Thunder in a desert"
+    },
+    {
+        img: "./img/2.jpg",
+        description: "Sea by the mountain"
+    },
+    {
+        img: "./img/3.jpg",
+        description: "Man in the woods"
+    },
+    {
+        img: "./img/4.jpg",
+        description: "Hills covered with snow"
+    }
+]
+
+const populatePage = () => {
+    const div = document.createElement('div');
+    div.className = "container";
+    for (let i = 0; i < data.length; i++){
+        let item = data[i]
+        let imgWrap = document.createElement('div');
+        imgWrap.className = "img-wrapper fold";
+        imgWrap.id = i;
+        imgWrap.innerHTML = 
+        `
+            <img src="${item.img}"/>
+            <div class="desc">${item.description}</div>
+        `;
+    div.append(imgWrap);  
+    }
+    pageContainer.appendChild(div);
+}
+
+
+const handleImgClick = (e) => {
+    console.log(e);
+}
+window.addEventListener("load", () => {
+    populatePage();
+    const imgWrapper = document.getElementsByClassName('img-wrapper');
+   for (let i = 0; i < imgWrapper.length; i++){
+    imgWrapper[i].addEventListener("click", handleImgClick)
+   }
+    // console.log(imgWrapper);
+    // imgWrapper.addEventListener("click", handleImgClick)
+})
