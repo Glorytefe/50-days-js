@@ -19,16 +19,17 @@ body{
 
 .img-wrapper{
     cursor: pointer;
-    max-width: 5vw;
-    /* flex: 0.5; */
+    flex: 0.5;
     transition: all 1s ease-in;
-    height: 65vh;
+    height: 70vh;
     margin: 0 10px;
     position: relative;
 } 
 
 .img-wrapper img{
     width: 100%;
+    object-fit: cover;
+    object-position: top center;
     height: 100%;
     border-radius: 50px;
 }
@@ -40,6 +41,7 @@ body{
     bottom: 15px;
     left: 30px;
     opacity: 0;;
+    font-size: 14px;
     font-weight: 700;
 }
 .scale{
@@ -47,16 +49,19 @@ body{
     transition: all 1s;
 }
 .active{
-    max-width: 600px;
-    /* flex: 5; */
+    flex: 5;
     transition: all 1s ease-in 5ms;
 }
+
 .active .desc{
     opacity: 1;
     transition: all 1s ease-in 1s;
 }
 @media (max-width: 480px) {
-    .img-wrapper:nth-of-type(4) {
-      display: none;
+    .container{
+    overflow-x: scroll;
+    }
+    .active{
+        min-width: 200px;
     }
   }
