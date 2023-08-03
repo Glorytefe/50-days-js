@@ -1,0 +1,107 @@
+
+:root{
+  --first-bg-col: rgba(87, 84, 236, 0.7);
+  --second-bg-col: rgba(43, 43, 43, 0.75);
+  --first-btn-hover-bg: rgba(87, 84, 236, 1);
+  --second-btn-hover-bg: rgba(28, 122, 28, 1);
+  --white: #fff;
+  --flex-transition: flex ease-in 1s;
+}
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.split-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.first {
+  background: linear-gradient(to bottom, var(--first-bg-col), var(--first-bg-col)),
+    url("./assets/ps1.jpeg");
+
+}
+
+.second {
+  background: linear-gradient(to bottom, var(--second-bg-col), var(--second-bg-col)),
+    url("./assets/xbox.jpeg");
+}
+
+.first,
+.second {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  transition: var(--flex-transition);
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 70%;
+  color: var(--white);
+  font-size: 31px;
+  white-space: nowrap;
+}
+
+.split-wrapper button {
+  width: 240px;
+  background-color: transparent;
+  color: var(--white);
+  height: 70px;
+  border: 3px solid var(--white);
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.first:hover,
+.second:hover {
+  flex: 75%;
+  transition: var(--flex-transition);
+}
+
+.first:hover+.second,
+.first:has(+ .second:hover){
+  flex: 25%;
+  transition: var(--flex-transition);
+}
+
+.first button:hover{
+  background-color: var(--first-btn-hover-bg);
+  border-color: var(--first-btn-hover-bg);
+}
+
+.second button:hover{
+  background-color: var(--second-btn-hover-bg);
+  border-color: var(--second-btn-hover-bg);
+}
+
+@media screen and (max-width: 785px) {
+  .text-wrap{
+    font-size: 14px;
+  }
+  .split-wrapper button{
+    width: 185px;
+    height: 55px;
+  }
+}
